@@ -25,3 +25,7 @@ Serão necessarios abrir 3 terminais, em um rode o comando $ python3 mqttServer.
 , e no ultimo terminal rode o comando $ python3 grpcClient.py e escolha a mesma porta do servidor.
 
 No terminal do que rodou o comando $ python3 grpcClient.py siga as instruções do arquivo "tests/teste01.txt" presente no projeto que mostra o passo a passo de criação de dois clientes e uma tarefa para cada um dos clientes, após isso somente seguir as intruções dos menus para a realização de outras terafas como deletar tarefa ou cliente.
+
+# Informações adicionais
+
+Não foi possivel implementar testes automatizados devido a algumas falhas em minha máquina pessoal, além de alguns problemas nos mesmos ao cria-los de forma inicial
