@@ -1,0 +1,46 @@
+//python3 -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./proto/tasks.proto
+
+syntax="proto3";
+
+package grpcPackage1;
+
+service Tasks {
+    rpc createTask (Task) returns (Task) {}
+    rpc returnTask (voidNoParam) returns (voidNoParam) {}
+    rpc getTask (getTaskRequest) returns (TasksList) {}
+    rpc getTasks (getAllTasksByUser) returns (TasksList) {}
+    rpc getTasksByUser (getAllTasksByUser) returns (TasksList) {}
+    rpc updateTask (UpdateTaskRequest) returns (Task) {}
+    rpc deleteSpecificTask (getTaskRequest) returns (voidNoParam) {}
+    rpc deleteallTasksByUser (getAllTasksByUser) returns (voidNoParam) {}
+    rpc flushTaskContent (voidNoParam) returns (voidNoParam) {}
+    rpc returnError (voidNoParam) returns (voidNoParam) {}
+}
+
+message voidNoParam {}
+
+message UpdateTaskRequest {
+    int64 id = 1;
+    string payload = 2;
+}
+
+message getTaskRequest {
+    int64 id = 1;
+}
+
+message getAllTasksByUser {
+    int64 idUsuario = 1;
+}
+
+message Task {
+    int64 id = 1;
+    string payload = 2;
+}
+
+message TasksList {
+    repeated Task tasks = 1;
+}
+
+message returnErrorRequest {
+    string Error = 1;
+}

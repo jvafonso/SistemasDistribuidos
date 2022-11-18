@@ -1,0 +1,50 @@
+//python3 -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./proto/grpc.proto
+
+syntax="proto3";
+
+package grpcPackage;
+
+service Todo {
+    rpc createItem (Item) returns (Items) {}
+    rpc returnItems (voidNoParam) returns (ItemsList) {}
+    rpc getUser (getUserRequest) returns (Items) {}
+    rpc updateUser (UpdateUserRequest) returns (Items) {}
+    rpc deleteUser (Item) returns (Items) {}
+    rpc returnError (voidNoParam) returns (voidNoParam) {}
+    rpc flushUserContent (voidNoParam) returns (voidNoParam) {}
+}
+
+message voidNoParam {}
+
+message UpdateUserRequest {
+    int64 id = 1;
+    string payload = 2;
+}
+
+message getUserRequest {
+    int64 id = 1;
+}
+
+message returnErrorRequest {
+    string Error = 1;
+}
+
+message Item {
+    int64 id = 1;
+    string payload = 2;
+    //string nome = 2;
+    //string email = 3;
+    //int32 idade = 4;
+}
+
+message Items {
+    int64 id = 1;
+    string payload = 2;
+    //string nome = 2;
+    //string email = 3;
+    //int32 idade = 4;
+}
+
+message ItemsList {
+    repeated Item items = 1;
+}
